@@ -9,6 +9,34 @@ int bin_search(const int a[],int n, int key)
 	while (1)
 	{
 		int m = (s + e) / 2;
+		printf("   |");
+		for (int j = 0; j <= e; j++)
+		{
+			if (j == s)
+			{
+				printf(" <=");
+			}
+			else if (j == e)
+			{
+				printf(" =>");
+			}
+			else if (j == m)
+			{
+				printf("  +");
+			}
+			else
+			{
+				printf("   ");
+			}
+			
+		}
+		printf("\n");
+		printf("  %d|  ", m);
+		for (int k = 0; k < n; k++)
+		{
+			printf("%d  ", a[k]);
+		}
+		printf("\n");
 		if (a[m] > key)
 		{
 			e = m-1;
@@ -48,6 +76,12 @@ int main(void)
 	}
 	printf("search value: ");
 	scanf("%d", &ky);
+	printf("   |");
+	for (int i = 0; i < nx; i++)
+	{
+		printf(" %d", i);
+	}
+	printf("\n---+---------------------------\n");
 	int idx = bin_search(x, nx, ky);
 	if (idx == -1)
 	{
