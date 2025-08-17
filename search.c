@@ -2,16 +2,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int search(const int a[], int n, int key)
+int search(int a[], int n, int key)
 {
-	for (int i = 0; i < n; i++)
+	int i = 0;
+	a[n] = key;
+	while (1)
 	{
 		if (a[i] == key)
 		{
-			return i;
+			break;
 		}
+		i++;
 	}
-	return -1;
+	return i == n ? -1 : i;
+
 }
 int main(void)
 {
@@ -19,7 +23,7 @@ int main(void)
 	puts("linear search");
 	printf("number of elemests: ");
 	scanf("%d", &nx);
-	int *x = calloc(nx, sizeof(int));
+	int *x = calloc(nx+1, sizeof(int));
 	for (int i = 0; i < nx; i++)
 	{
 		printf("x[%d]: ", i);
