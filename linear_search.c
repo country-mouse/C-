@@ -5,17 +5,26 @@
 int search(int a[], int n, int key)
 {
 	int i = 0;
-	a[n] = key;
-	while (1)
+	for(int i = 0; i<n; i++)
 	{
+		printf("   | ");
+		for (int j = 0; j < i; j++)
+		{
+			printf("  ");
+		}
+		printf("*\n");
+		printf("  %d| ", i);
+		for (int k = 0; k < n; k++)
+		{
+			printf("%d ", a[k]);
+		}
+		printf("\n");
 		if (a[i] == key)
 		{
-			break;
+			return i;
 		}
-		i++;
 	}
-	return i = n ? -1 : i;
-
+	return -1;
 }
 int main(void)
 {
@@ -23,7 +32,7 @@ int main(void)
 	puts("linear search");
 	printf("number of elemests: ");
 	scanf("%d", &nx);
-	int *x = calloc(nx+1, sizeof(int));
+	int *x = calloc(nx, sizeof(int));
 	for (int i = 0; i < nx; i++)
 	{
 		printf("x[%d]: ", i);
@@ -31,6 +40,12 @@ int main(void)
 	}
 	printf("search value: ");
 	scanf("%d", &ky);
+	printf("   |");
+	for (int i = 0; i < nx; i++)
+	{
+		printf(" %d", i);
+	}
+	printf("\n---+---------------------------\n");
 	int idx = search(x, nx, ky);
 	if (idx == -1)
 	{
@@ -38,7 +53,7 @@ int main(void)
 	}
 	else
 	{
-		printf("%d is located at x[%d].\n", ky, idx);
+		printf("\n%d is located at x[%d].\n", ky, idx);
 	}
 	free(x);
 
